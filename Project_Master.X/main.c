@@ -319,61 +319,40 @@ int main(void)
 
             while(close_time < 2000)
             {
-
                 uint16_t ldr_val = ADC_read(LDR_CHANNEL);
-
                 if(ldr_val < LDR_THRESHOLD)
                 {
-
                     cmd = 1;
                     send_command(cmd);
-
                     state = OBSTACLE;
-
                     break;
                 }
-
                 _delay_ms(50);
-
                 close_time += 50;
-
             }
-
             if(state != OBSTACLE)
             {
-
                 cmd = 0;
                 send_command(cmd);
-
                 state = IDLE;
-
             }
-
         break;
 
-
         /* ---------- OBSTACLE ---------- */
-
         case OBSTACLE:
-
             lcd_clrscr();
             lcd_puts("Obstacle!");
-
             cmd = 1;
             send_command(cmd);
-
+            
             while(ADC_read(LDR_CHANNEL) < LDR_THRESHOLD)
             {
                 _delay_ms(100);
             }
-
             cmd = 0;
             send_command(cmd);
-
             state = DOOR_OPENING;
-
         break;
-
 
         /* ---------- FAULT ---------- */
 

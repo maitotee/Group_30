@@ -1,0 +1,763 @@
+Archive member included to satisfy reference by file (symbol)
+
+/Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_exit.o)
+                              /Users/roope/.mchp_packs/Microchip/ATmega_DFP/3.5.296/gcc/dev/atmega2560/avr6/crtatmega2560.o (exit)
+/Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_tablejump2.o)
+                              build/default/production/keypad.o (__tablejump2__)
+/Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_copy_data.o)
+                              build/default/production/main.o (__do_copy_data)
+/Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_clear_bss.o)
+                              build/default/production/twi.o (__do_clear_bss)
+/Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(memcpy.o)
+                              build/default/production/twi.o (memcpy)
+/Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(sprintf.o)
+                              build/default/production/main.o (sprintf)
+/Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(vfprintf_std.o)
+                              /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(sprintf.o) (vfprintf)
+/Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(strnlen_P.o)
+                              /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(vfprintf_std.o) (strnlen_P)
+/Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(strnlen.o)
+                              /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(vfprintf_std.o) (strnlen)
+/Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(fputc.o)
+                              /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(vfprintf_std.o) (fputc)
+/Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(ultoa_invert.o)
+                              /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(vfprintf_std.o) (__ultoa_invert)
+/Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_negsi2.o)
+                              /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(vfprintf_std.o) (__negsi2)
+
+Discarded input sections
+
+ .data          0x00000000        0x0 /Users/roope/.mchp_packs/Microchip/ATmega_DFP/3.5.296/gcc/dev/atmega2560/avr6/crtatmega2560.o
+ .bss           0x00000000        0x0 /Users/roope/.mchp_packs/Microchip/ATmega_DFP/3.5.296/gcc/dev/atmega2560/avr6/crtatmega2560.o
+ .text          0x00000000        0x0 build/default/production/twi.o
+ .data          0x00000000        0x0 build/default/production/twi.o
+ .bss           0x00000000        0x0 build/default/production/twi.o
+ .text.twi_init
+                0x00000000       0x18 build/default/production/twi.o
+ .text.twi_wait
+                0x00000000        0xe build/default/production/twi.o
+ .text.twi_start
+                0x00000000        0x8 build/default/production/twi.o
+ .text.twi_stop
+                0x00000000        0x8 build/default/production/twi.o
+ .text.twi_ack  0x00000000        0x8 build/default/production/twi.o
+ .text.twi_nack
+                0x00000000        0x8 build/default/production/twi.o
+ .text.twi_send
+                0x00000000        0x6 build/default/production/twi.o
+ .text.twi_write
+                0x00000000       0x66 build/default/production/twi.o
+ .text.twi_read
+                0x00000000       0x3e build/default/production/twi.o
+ .text          0x00000000        0x0 build/default/production/delay.o
+ .data          0x00000000        0x0 build/default/production/delay.o
+ .bss           0x00000000        0x0 build/default/production/delay.o
+ .text.DELAY_sec
+                0x00000000       0x28 build/default/production/delay.o
+ .comment       0x00000000       0x30 build/default/production/delay.o
+ .text          0x00000000        0x0 build/default/production/keypad.o
+ .data          0x00000000        0x0 build/default/production/keypad.o
+ .bss           0x00000000        0x0 build/default/production/keypad.o
+ .text          0x00000000        0x0 build/default/production/lcd.o
+ .data          0x00000000        0x0 build/default/production/lcd.o
+ .bss           0x00000000        0x0 build/default/production/lcd.o
+ .text.lcd_data
+                0x00000000       0x20 build/default/production/lcd.o
+ .text.lcd_gotoxy
+                0x00000000       0x14 build/default/production/lcd.o
+ .text.lcd_getxy
+                0x00000000        0x8 build/default/production/lcd.o
+ .text.lcd_home
+                0x00000000        0x8 build/default/production/lcd.o
+ .text.lcd_puts_p
+                0x00000000       0x26 build/default/production/lcd.o
+ .text          0x00000000        0x0 build/default/production/main.o
+ .data          0x00000000        0x0 build/default/production/main.o
+ .bss           0x00000000        0x0 build/default/production/main.o
+ .text          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_exit.o)
+ .data          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_exit.o)
+ .bss           0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_exit.o)
+ .text.libgcc   0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_exit.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_exit.o)
+ .text          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_tablejump2.o)
+ .data          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_tablejump2.o)
+ .bss           0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_tablejump2.o)
+ .text.libgcc.mul
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_tablejump2.o)
+ .text.libgcc.div
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_tablejump2.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_tablejump2.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_tablejump2.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_tablejump2.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_tablejump2.o)
+ .text          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_copy_data.o)
+ .data          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_copy_data.o)
+ .bss           0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_copy_data.o)
+ .text          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_clear_bss.o)
+ .data          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_clear_bss.o)
+ .bss           0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_clear_bss.o)
+ .text.libgcc.mul
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_clear_bss.o)
+ .text          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(memcpy.o)
+ .data          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(memcpy.o)
+ .bss           0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(memcpy.o)
+ .text.avr-libc
+                0x00000000       0x12 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(memcpy.o)
+ .text          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(sprintf.o)
+ .data          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(sprintf.o)
+ .bss           0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(sprintf.o)
+ .text          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(vfprintf_std.o)
+ .data          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(vfprintf_std.o)
+ .bss           0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(vfprintf_std.o)
+ .text          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(strnlen_P.o)
+ .data          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(strnlen_P.o)
+ .bss           0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(strnlen_P.o)
+ .text          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(strnlen.o)
+ .data          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(strnlen.o)
+ .bss           0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(strnlen.o)
+ .text          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(fputc.o)
+ .data          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(fputc.o)
+ .bss           0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(fputc.o)
+ .text          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(ultoa_invert.o)
+ .data          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(ultoa_invert.o)
+ .bss           0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(ultoa_invert.o)
+ .text          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_negsi2.o)
+ .data          0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_negsi2.o)
+ .bss           0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_negsi2.o)
+ .text.libgcc.mul
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_negsi2.o)
+ .text.libgcc   0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_negsi2.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_negsi2.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_negsi2.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_negsi2.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_negsi2.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00040000         xr
+data             0x00800200         0x00002000         rw!x
+eeprom           0x00810000         0x00001000         rw!x
+fuse             0x00820000         0x00000003         rw!x
+lock             0x00830000         0x00000400         rw!x
+signature        0x00840000         0x00000400         rw!x
+user_signatures  0x00850000         0x00000400         rw!x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+Address of section .data set to 0x800200
+LOAD /Users/roope/.mchp_packs/Microchip/ATmega_DFP/3.5.296/gcc/dev/atmega2560/avr6/crtatmega2560.o
+LOAD build/default/production/twi.o
+LOAD build/default/production/delay.o
+LOAD build/default/production/keypad.o
+LOAD build/default/production/lcd.o
+LOAD build/default/production/main.o
+                0x00000001                        __MPLAB_BUILD = 0x1
+START GROUP
+LOAD /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libm.a
+END GROUP
+START GROUP
+LOAD /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a
+LOAD /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libm.a
+LOAD /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a
+LOAD /Users/roope/.mchp_packs/Microchip/ATmega_DFP/3.5.296/gcc/dev/atmega2560/avr6/libatmega2560.a
+END GROUP
+                0x00000000                        __TEXT_REGION_ORIGIN__ = DEFINED (__TEXT_REGION_ORIGIN__)?__TEXT_REGION_ORIGIN__:0x0
+                [0x00040000]                      __TEXT_REGION_LENGTH__ = DEFINED (__TEXT_REGION_LENGTH__)?__TEXT_REGION_LENGTH__:0x100000
+                [0x00800200]                      __DATA_REGION_ORIGIN__ = DEFINED (__DATA_REGION_ORIGIN__)?__DATA_REGION_ORIGIN__:0x800200
+                [0x00002000]                      __DATA_REGION_LENGTH__ = DEFINED (__DATA_REGION_LENGTH__)?__DATA_REGION_LENGTH__:0xfe00
+                [0x00001000]                      __EEPROM_REGION_LENGTH__ = DEFINED (__EEPROM_REGION_LENGTH__)?__EEPROM_REGION_LENGTH__:0x10000
+                [0x00000003]                      __FUSE_REGION_LENGTH__ = DEFINED (__FUSE_REGION_LENGTH__)?__FUSE_REGION_LENGTH__:0x400
+                0x00000400                        __LOCK_REGION_LENGTH__ = DEFINED (__LOCK_REGION_LENGTH__)?__LOCK_REGION_LENGTH__:0x400
+                0x00000400                        __SIGNATURE_REGION_LENGTH__ = DEFINED (__SIGNATURE_REGION_LENGTH__)?__SIGNATURE_REGION_LENGTH__:0x400
+                0x00000400                        __USER_SIGNATURE_REGION_LENGTH__ = DEFINED (__USER_SIGNATURE_REGION_LENGTH__)?__USER_SIGNATURE_REGION_LENGTH__:0x400
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x10c2
+ *(.vectors)
+ .vectors       0x00000000       0xe4 /Users/roope/.mchp_packs/Microchip/ATmega_DFP/3.5.296/gcc/dev/atmega2560/avr6/crtatmega2560.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+                0x000000e4                        . = ALIGN (0x2)
+                0x000000e4                        __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x000000e4       0x60 linker stubs
+ *(.trampolines*)
+                0x00000144                        __trampolines_end = .
+ *libprintf_flt.a:*(.progmem.data)
+ *libc.a:*(.progmem.data)
+ *(.progmem.*)
+                0x00000144                        . = ALIGN (0x2)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000144                        __ctors_start = .
+ *(.ctors)
+                0x00000144                        __ctors_end = .
+                0x00000144                        __dtors_start = .
+ *(.dtors)
+                0x00000144                        __dtors_end = .
+ SORT_BY_NAME(*)(.ctors)
+ SORT_BY_NAME(*)(.dtors)
+ *(.init0)
+ .init0         0x00000144        0x0 /Users/roope/.mchp_packs/Microchip/ATmega_DFP/3.5.296/gcc/dev/atmega2560/avr6/crtatmega2560.o
+                0x00000144                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000144       0x10 /Users/roope/.mchp_packs/Microchip/ATmega_DFP/3.5.296/gcc/dev/atmega2560/avr6/crtatmega2560.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000154       0x1a /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_copy_data.o)
+                0x00000154                __do_copy_data
+ .init4         0x0000016e       0x10 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_clear_bss.o)
+                0x0000016e                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000017e        0x8 /Users/roope/.mchp_packs/Microchip/ATmega_DFP/3.5.296/gcc/dev/atmega2560/avr6/crtatmega2560.o
+ *(.init9)
+ *(.text)
+ .text          0x00000186        0x4 /Users/roope/.mchp_packs/Microchip/ATmega_DFP/3.5.296/gcc/dev/atmega2560/avr6/crtatmega2560.o
+                0x00000186                __vector_42
+                0x00000186                __vector_22
+                0x00000186                __vector_28
+                0x00000186                __vector_1
+                0x00000186                __vector_32
+                0x00000186                __vector_34
+                0x00000186                __vector_24
+                0x00000186                __vector_12
+                0x00000186                __vector_55
+                0x00000186                __vector_46
+                0x00000186                __bad_interrupt
+                0x00000186                __vector_6
+                0x00000186                __vector_31
+                0x00000186                __vector_35
+                0x00000186                __vector_3
+                0x00000186                __vector_23
+                0x00000186                __vector_30
+                0x00000186                __vector_45
+                0x00000186                __vector_25
+                0x00000186                __vector_11
+                0x00000186                __vector_54
+                0x00000186                __vector_13
+                0x00000186                __vector_17
+                0x00000186                __vector_19
+                0x00000186                __vector_56
+                0x00000186                __vector_7
+                0x00000186                __vector_49
+                0x00000186                __vector_41
+                0x00000186                __vector_43
+                0x00000186                __vector_27
+                0x00000186                __vector_5
+                0x00000186                __vector_33
+                0x00000186                __vector_47
+                0x00000186                __vector_52
+                0x00000186                __vector_37
+                0x00000186                __vector_4
+                0x00000186                __vector_44
+                0x00000186                __vector_51
+                0x00000186                __vector_9
+                0x00000186                __vector_2
+                0x00000186                __vector_21
+                0x00000186                __vector_15
+                0x00000186                __vector_36
+                0x00000186                __vector_29
+                0x00000186                __vector_40
+                0x00000186                __vector_8
+                0x00000186                __vector_26
+                0x00000186                __vector_48
+                0x00000186                __vector_14
+                0x00000186                __vector_53
+                0x00000186                __vector_10
+                0x00000186                __vector_50
+                0x00000186                __vector_16
+                0x00000186                __vector_18
+                0x00000186                __vector_20
+                0x00000186                __vector_38
+                0x0000018a                        . = ALIGN (0x2)
+ *(.text.*)
+ .text.twi_recv
+                0x0000018a       0x1a build/default/production/twi.o
+                0x0000018a                twi_recv
+ .text.twi_reply
+                0x000001a4       0x22 build/default/production/twi.o
+                0x000001a4                twi_reply
+ .text.twi_done
+                0x000001c6       0x1e build/default/production/twi.o
+                0x000001c6                twi_done
+ .text.__vector_39
+                0x000001e4       0xd2 build/default/production/twi.o
+                0x000001e4                __vector_39
+ .text.KEYPAD_Init
+                0x000002b6        0xe build/default/production/keypad.o
+                0x000002b6                KEYPAD_Init
+ .text.KEYPAD_WaitForKeyRelease
+                0x000002c4       0x34 build/default/production/keypad.o
+                0x000002c4                KEYPAD_WaitForKeyRelease
+ .text.KEYPAD_WaitForKeyPress
+                0x000002f8       0x34 build/default/production/keypad.o
+                0x000002f8                KEYPAD_WaitForKeyPress
+ .text.KEYPAD_GetKey
+                0x0000032c       0xa6 build/default/production/keypad.o
+                0x0000032c                KEYPAD_GetKey
+ .text.lcd_read
+                0x000003d2       0x4e build/default/production/lcd.o
+ .text.lcd_waitbusy
+                0x00000420       0x16 build/default/production/lcd.o
+ .text.toggle_e
+                0x00000436        0x8 build/default/production/lcd.o
+ .text.lcd_write
+                0x0000043e       0x60 build/default/production/lcd.o
+ .text.lcd_command
+                0x0000049e       0x20 build/default/production/lcd.o
+                0x0000049e                lcd_command
+ .text.lcd_clrscr
+                0x000004be        0x8 build/default/production/lcd.o
+                0x000004be                lcd_clrscr
+ .text.lcd_putc
+                0x000004c6       0x30 build/default/production/lcd.o
+                0x000004c6                lcd_putc
+ .text.lcd_puts
+                0x000004f6       0x20 build/default/production/lcd.o
+                0x000004f6                lcd_puts
+ .text.lcd_init
+                0x00000516       0x84 build/default/production/lcd.o
+                0x00000516                lcd_init
+ .text.TWI_init
+                0x0000059a       0x12 build/default/production/main.o
+                0x0000059a                TWI_init
+ .text.TWI_start
+                0x000005ac       0x12 build/default/production/main.o
+                0x000005ac                TWI_start
+ .text.TWI_stop
+                0x000005be       0x10 build/default/production/main.o
+                0x000005be                TWI_stop
+ .text.TWI_write
+                0x000005ce       0x16 build/default/production/main.o
+                0x000005ce                TWI_write
+ .text.send_command
+                0x000005e4       0x28 build/default/production/main.o
+                0x000005e4                send_command
+ .text.UART_init
+                0x0000060c       0x18 build/default/production/main.o
+                0x0000060c                UART_init
+ .text.UART_send
+                0x00000624       0x10 build/default/production/main.o
+                0x00000624                UART_send
+ .text.UART_print
+                0x00000634       0x20 build/default/production/main.o
+                0x00000634                UART_print
+ .text.leds_off
+                0x00000654        0x8 build/default/production/main.o
+                0x00000654                leds_off
+ .text.ADC_init
+                0x0000065c        0xe build/default/production/main.o
+                0x0000065c                ADC_init
+ .text.ADC_read
+                0x0000066a       0x26 build/default/production/main.o
+                0x0000066a                ADC_read
+ .text.main     0x00000690      0x348 build/default/production/main.o
+                0x00000690                main
+ .text.libgcc   0x000009d8       0x10 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_tablejump2.o)
+                0x000009d8                __tablejump2__
+ .text.avr-libc
+                0x000009e8       0x5a /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(sprintf.o)
+                0x000009e8                sprintf
+ .text.avr-libc
+                0x00000a42      0x426 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(vfprintf_std.o)
+                0x00000a42                vfprintf
+ .text.avr-libc
+                0x00000e68       0x16 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(strnlen_P.o)
+                0x00000e68                strnlen_P
+ .text.avr-libc
+                0x00000e7e       0x16 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(strnlen.o)
+                0x00000e7e                strnlen
+ .text.avr-libc
+                0x00000e94       0x60 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(fputc.o)
+                0x00000e94                fputc
+ .text.avr-libc
+                0x00000ef4       0xbc /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(ultoa_invert.o)
+                0x00000ef4                __ultoa_invert
+ .text.libgcc.div
+                0x00000fb0       0x10 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_negsi2.o)
+                0x00000fb0                __negsi2
+                0x00000fc0                        . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00000fc0        0x0 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_exit.o)
+                0x00000fc0                exit
+                0x00000fc0                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00000fc0        0x4 /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/avr6/libgcc.a(_exit.o)
+ *(.fini0)
+ *(.hightext)
+ *(.hightext*)
+ *(.progmemx.*)
+                0x00000fc4                        . = ALIGN (0x2)
+ *(.jumptables)
+ *(.jumptables*)
+ .jumptables.gcc.KEYPAD_GetKey
+                0x00000fc4       0xf0 build/default/production/keypad.o
+ .jumptables.gcc.main
+                0x000010b4        0xe build/default/production/main.o
+                0x000010c2                        _etext = .
+
+.data           0x00800200       0x60 load address 0x000010c2
+                0x00800200                        PROVIDE (__data_start = .)
+ *(.data)
+ *(.data*)
+ *(.gnu.linkonce.d*)
+ *(.rodata)
+ *(.rodata*)
+ .rodata.main.str1.1
+                0x00800200       0x5f build/default/production/main.o
+ *(.gnu.linkonce.r*)
+                0x00800260                        . = ALIGN (0x2)
+ *fill*         0x0080025f        0x1 
+                0x00800260                        _edata = .
+                0x00800260                        PROVIDE (__data_end = .)
+
+.bss            0x00800260       0x4c
+                0x00800260                        PROVIDE (__bss_start = .)
+ *(.bss)
+ *(.bss*)
+ .bss.transmission
+                0x00800260       0x24 build/default/production/twi.o
+ .bss.busy      0x00800284        0x1 build/default/production/twi.o
+ .bss.cmd       0x00800285        0x1 build/default/production/main.o
+                0x00800285                cmd
+ .bss.key       0x00800286        0x1 build/default/production/main.o
+                0x00800286                key
+ .bss.buffer    0x00800287       0x20 build/default/production/main.o
+                0x00800287                buffer
+ .bss.input_active
+                0x008002a7        0x1 build/default/production/main.o
+                0x008002a7                input_active
+ .bss.input_floor
+                0x008002a8        0x1 build/default/production/main.o
+                0x008002a8                input_floor
+ .bss.target_floor
+                0x008002a9        0x1 build/default/production/main.o
+                0x008002a9                target_floor
+ .bss.current_floor
+                0x008002aa        0x1 build/default/production/main.o
+                0x008002aa                current_floor
+ .bss.state     0x008002ab        0x1 build/default/production/main.o
+                0x008002ab                state
+ *(COMMON)
+                0x008002ac                        PROVIDE (__bss_end = .)
+                0x000010c2                        __data_load_start = LOADADDR (.data)
+                0x00001122                        __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x008002ac        0x0
+                [!provide]                        PROVIDE (__noinit_start = .)
+ *(.noinit .noinit.* .gnu.linkonce.n.*)
+                [!provide]                        PROVIDE (__noinit_end = .)
+                0x008002ac                        _end = .
+                [!provide]                        PROVIDE (__heap_start = .)
+                0x00000000                        __flmap_init_label = DEFINED (__flmap_noinit_start)?__flmap_noinit_start:0x0
+                0x00000000                        __flmap = DEFINED (__flmap)?__flmap:0x0
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                        __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x5c
+ *(.comment)
+ .comment       0x00000000       0x5c build/default/production/twi.o
+                                 0x30 (size before relaxing)
+ .comment       0x0000005c       0x30 build/default/production/keypad.o
+ .comment       0x0000005c       0x30 build/default/production/lcd.o
+ .comment       0x0000005c       0x30 build/default/production/main.o
+ .comment       0x0000005c       0x2e /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(sprintf.o)
+ .comment       0x0000005c       0x2e /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(vfprintf_std.o)
+ .comment       0x0000005c       0x2e /Users/roope/Documents/Koulu/Embedded systems/avr8-gnu-toolchain-darwin_universal/bin/../lib/gcc/avr/15.1.0/../../../../avr/lib/avr6/libc.a(fputc.o)
+
+.note.gnu.avr.deviceinfo
+                0x00000000       0x40
+ .note.gnu.avr.deviceinfo
+                0x00000000       0x40 /Users/roope/.mchp_packs/Microchip/ATmega_DFP/3.5.296/gcc/dev/atmega2560/avr6/crtatmega2560.o
+
+.gnu.build.attributes
+ *(.gnu.build.attributes .gnu.build.attributes.*)
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000      0xbbc
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0xbbc /Users/roope/.mchp_packs/Microchip/ATmega_DFP/3.5.296/gcc/dev/atmega2560/avr6/crtatmega2560.o
+
+.debug_abbrev   0x00000000      0xb1a
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0xb1a /Users/roope/.mchp_packs/Microchip/ATmega_DFP/3.5.296/gcc/dev/atmega2560/avr6/crtatmega2560.o
+
+.debug_line     0x00000000      0x1fa
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x00000000      0x1fa /Users/roope/.mchp_packs/Microchip/ATmega_DFP/3.5.296/gcc/dev/atmega2560/avr6/crtatmega2560.o
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str      0x00000000      0x3e6
+ *(.debug_str)
+ .debug_str     0x00000000      0x3e6 /Users/roope/.mchp_packs/Microchip/ATmega_DFP/3.5.296/gcc/dev/atmega2560/avr6/crtatmega2560.o
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges
+ *(.debug_ranges)
+
+.debug_addr
+ *(.debug_addr)
+
+.debug_line_str
+ *(.debug_line_str)
+
+.debug_loclists
+ *(.debug_loclists)
+
+.debug_macro
+ *(.debug_macro)
+
+.debug_names
+ *(.debug_names)
+
+.debug_rnglists
+ *(.debug_rnglists)
+
+.debug_str_offsets
+ *(.debug_str_offsets)
+
+.debug_sup
+ *(.debug_sup)
+OUTPUT(dist/default/production/Project_Master.X.production.elf elf32-avr)
+LOAD linker stubs

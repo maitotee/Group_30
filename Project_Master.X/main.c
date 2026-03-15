@@ -14,8 +14,7 @@
 #define LDR_CHANNEL 7
 #define LDR_THRESHOLD 400
 
-typedef enum
-{
+typedef enum {
     IDLE,
     GOING_UP,
     GOING_DOWN,
@@ -37,7 +36,7 @@ uint8_t cmd = 0;
 
 void TWI_init() {
     TWSR = 0x00;
-    TWBR = 72;          // 100kHz @16MHz
+    TWBR = 72; 
     TWCR = (1<<TWEN);
 }
 
@@ -107,9 +106,9 @@ int main(void) {
     KEYPAD_Init();
     ADC_init();
     TWI_init();
+    
     while(1)
     {
-
         switch(state) {
         case IDLE:
             UART_print("STATE: IDLE\r\n");
@@ -121,6 +120,7 @@ int main(void) {
             lcd_puts("Enter floor:");
             input_floor = 0;
             input_active = 1;
+            
             while(input_active)
             {
                 key = KEYPAD_GetKey();
@@ -135,25 +135,21 @@ int main(void) {
                     _delay_ms(200);
                     while(KEYPAD_GetKey() != 'z')
                         _delay_ms(10);
-                }
-                if(key == '#') {
+                } if(key == '#') {
                     input_floor = 0;
                     lcd_clrscr();
                     lcd_puts("Enter floor:");
-                }
-                if(key == '*') {
+                } if(key == '*') {
                     target_floor = input_floor;
                     input_active = 0;
                 }
-            }
-            if(target_floor == current_floor){
+            } if(target_floor == current_floor){
                 state = FAULT;
-            }
-            else if(target_floor > current_floor){
+            } else if(target_floor > current_floor){
                 state = GOING_UP;
-            }
-            else
+            } else {
                 state = GOING_DOWN;
+            }
         break;
 
         case GOING_UP:
@@ -215,8 +211,7 @@ int main(void) {
                 }
                 _delay_ms(50);
                 close_time += 50;
-            }
-            if(state != OBSTACLE) {
+            } if(state != OBSTACLE) {
                 cmd = 0;
                 send_command(cmd);
                 state = IDLE;

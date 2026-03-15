@@ -41,7 +41,6 @@
 	#define PIN(x) (*(&x - 2))    /* address of input register of port x          */
 #endif
 
-
 #if LCD_IO_MODE
 #define lcd_e_delay()   _delay_us(LCD_DELAY_ENABLE_PULSE)
 #define lcd_e_high()    LCD_E_PORT  |=  _BV(LCD_E_PIN);

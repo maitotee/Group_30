@@ -23,7 +23,9 @@ typedef enum
     DOOR_CLOSING,
     OBSTACLE,
     FAULT
-} state_t;
+} 
+
+state_t;
 state_t state = IDLE;
 uint8_t current_floor = 0;
 uint8_t target_floor = 0;
@@ -88,17 +90,9 @@ void UART_print(char *str)
         UART_send(*str++);
 }
 
-void leds_off()
-{
-    PORTG &= ~(1<<LED_READY);
-    PORTG &= ~(1<<LED_MOVING);
-    PORTD &= ~(1<<LED_DOOR);
-}
-
 void ADC_init()
 {
     ADMUX = (1<<REFS0);
-
     ADCSRA =
         (1<<ADEN) |
         (1<<ADPS2) |
@@ -134,7 +128,9 @@ int main(void)
         {
         case IDLE:
             UART_print("STATE: IDLE\r\n");
-            leds_off();
+            PORTG &= ~(1<<LED_READY);
+            PORTG &= ~(1<<LED_MOVING);
+            PORTD &= ~(1<<LED_DOOR);
             PORTG |= (1<<LED_READY);
             lcd_clrscr();
             lcd_puts("Enter floor:");
@@ -178,7 +174,9 @@ int main(void)
         break;
 
         case GOING_UP:
-            leds_off();
+            PORTG &= ~(1<<LED_READY);
+            PORTG &= ~(1<<LED_MOVING);
+            PORTD &= ~(1<<LED_DOOR);
             PORTG |= (1<<LED_MOVING);
             current_floor++;
             lcd_clrscr();
@@ -190,7 +188,9 @@ int main(void)
         break;
 
         case GOING_DOWN:
-            leds_off();
+            PORTG &= ~(1<<LED_READY);
+            PORTG &= ~(1<<LED_MOVING);
+            PORTD &= ~(1<<LED_DOOR);
             PORTG |= (1<<LED_MOVING);
             current_floor--;
             lcd_clrscr();
@@ -202,7 +202,9 @@ int main(void)
         break;
 
         case DOOR_OPENING:
-            leds_off();
+            PORTG &= ~(1<<LED_READY);
+            PORTG &= ~(1<<LED_MOVING);
+            PORTD &= ~(1<<LED_DOOR);
             PORTD |= (1<<LED_DOOR);
             lcd_clrscr();
             lcd_puts("Door open");
@@ -211,7 +213,9 @@ int main(void)
         break;
 
         case DOOR_CLOSING:
-            leds_off();
+            PORTG &= ~(1<<LED_READY);
+            PORTG &= ~(1<<LED_MOVING);
+            PORTD &= ~(1<<LED_DOOR);
             PORTD |= (1<<LED_DOOR);
             lcd_clrscr();
             lcd_puts("Door closing");
@@ -252,7 +256,9 @@ int main(void)
         break;
 
         case FAULT:
-            leds_off();
+            PORTG &= ~(1<<LED_READY);
+            PORTG &= ~(1<<LED_MOVING);
+            PORTD &= ~(1<<LED_DOOR);
             lcd_clrscr();
             lcd_puts("Same floor");
             _delay_ms(2000);

@@ -35,42 +35,36 @@ char buffer[32];
 char key;
 uint8_t cmd = 0;
 
-void TWI_init()
-{
+void TWI_init() {
     TWSR = 0x00;
     TWBR = 72;          // 100kHz @16MHz
     TWCR = (1<<TWEN);
 }
 
-void TWI_start()
-{
+void TWI_start() {
     TWCR = (1<<TWINT)|(1<<TWSTA)|(1<<TWEN);
     while(!(TWCR & (1<<TWINT)));
 }
 
-void TWI_stop()
-{
+void TWI_stop() {
     TWCR = (1<<TWINT)|(1<<TWEN)|(1<<TWSTO);
     _delay_us(10);
 }
 
-void TWI_write(uint8_t data)
-{
+void TWI_write(uint8_t data) {
     TWDR = data;
     TWCR = (1<<TWINT)|(1<<TWEN);
     while(!(TWCR & (1<<TWINT)));
 }
 
-void send_command(uint8_t data)
-{
+void send_command(uint8_t data) {
     TWI_start();
     TWI_write(UNO_ADDR << 1);
     TWI_write(data);
     TWI_stop();
 }
 
-void UART_init()
-{
+void UART_init() {
     uint16_t ubrr = 103;
     UBRR0H = (ubrr >> 8);
     UBRR0L = ubrr;
@@ -78,20 +72,17 @@ void UART_init()
     UCSR0C = (1<<UCSZ01) | (1<<UCSZ00);
 }
 
-void UART_send(char c)
-{
+void UART_send(char c) {
     while(!(UCSR0A & (1<<UDRE0)));
     UDR0 = c;
 }
 
-void UART_print(char *str)
-{
+void UART_print(char *str) {
     while(*str)
         UART_send(*str++);
 }
 
-void ADC_init()
-{
+void ADC_init() {
     ADMUX = (1<<REFS0);
     ADCSRA =
         (1<<ADEN) |
@@ -99,19 +90,14 @@ void ADC_init()
         (1<<ADPS1);
 }
 
-uint16_t ADC_read(uint8_t ch)
-{
+uint16_t ADC_read(uint8_t ch) {
     ADMUX = (ADMUX & 0xF0) | ch;
-
     ADCSRA |= (1<<ADSC);
-
     while(ADCSRA & (1<<ADSC));
-
     return ADC;
 }
 
-int main(void)
-{
+int main(void) {
     DDRG |= (1<<LED_READY) | (1<<LED_MOVING);
     DDRD |= (1<<LED_DOOR);
     UART_init();
@@ -124,8 +110,7 @@ int main(void)
     while(1)
     {
 
-        switch(state)
-        {
+        switch(state) {
         case IDLE:
             UART_print("STATE: IDLE\r\n");
             PORTG &= ~(1<<LED_READY);
@@ -139,11 +124,9 @@ int main(void)
             while(input_active)
             {
                 key = KEYPAD_GetKey();
-                if(key >= '0' && key <= '9')
-                {
+                if(key >= '0' && key <= '9') {
                     uint8_t digit = key - '0';
-                    if(input_floor <= 9)
-                    {
+                    if(input_floor <= 9) {
                         input_floor = input_floor * 10 + digit;
                         lcd_clrscr();
                         sprintf(buffer,"Floor:%d",input_floor);
@@ -153,22 +136,22 @@ int main(void)
                     while(KEYPAD_GetKey() != 'z')
                         _delay_ms(10);
                 }
-                if(key == '#')
-                {
+                if(key == '#') {
                     input_floor = 0;
                     lcd_clrscr();
                     lcd_puts("Enter floor:");
                 }
-                if(key == '*')
-                {
+                if(key == '*') {
                     target_floor = input_floor;
                     input_active = 0;
                 }
             }
-            if(target_floor == current_floor)
+            if(target_floor == current_floor){
                 state = FAULT;
-            else if(target_floor > current_floor)
+            }
+            else if(target_floor > current_floor){
                 state = GOING_UP;
+            }
             else
                 state = GOING_DOWN;
         break;
@@ -183,8 +166,9 @@ int main(void)
             sprintf(buffer,"Floor:%d",current_floor);
             lcd_puts(buffer);
             _delay_ms(1000);
-            if(current_floor == target_floor)
+            if(current_floor == target_floor){
                 state = DOOR_OPENING;
+            }
         break;
 
         case GOING_DOWN:
@@ -197,8 +181,9 @@ int main(void)
             sprintf(buffer,"Floor:%d",current_floor);
             lcd_puts(buffer);
             _delay_ms(1000);
-            if(current_floor == target_floor)
+            if(current_floor == target_floor){
                 state = DOOR_OPENING;
+            }
         break;
 
         case DOOR_OPENING:
@@ -220,11 +205,9 @@ int main(void)
             lcd_clrscr();
             lcd_puts("Door closing");
             uint16_t close_time = 0;
-            while(close_time < 2000)
-            {
+            while(close_time < 2000) {
                 uint16_t ldr_val = ADC_read(LDR_CHANNEL);
-                if(ldr_val < LDR_THRESHOLD)
-                {
+                if(ldr_val < LDR_THRESHOLD) {
                     cmd = 1;
                     send_command(cmd);
                     state = OBSTACLE;
@@ -233,8 +216,7 @@ int main(void)
                 _delay_ms(50);
                 close_time += 50;
             }
-            if(state != OBSTACLE)
-            {
+            if(state != OBSTACLE) {
                 cmd = 0;
                 send_command(cmd);
                 state = IDLE;
@@ -246,8 +228,7 @@ int main(void)
             lcd_puts("Obstacle!");
             cmd = 1;
             send_command(cmd);    
-            while(ADC_read(LDR_CHANNEL) < LDR_THRESHOLD)
-            {
+            while(ADC_read(LDR_CHANNEL) < LDR_THRESHOLD) {
                 _delay_ms(100);
             }
             cmd = 0;

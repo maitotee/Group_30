@@ -10,7 +10,6 @@ build/default/production/main.o.d build/default/production/main.o: main.c \
  /Users/roope/Documents/Koulu/Embedded\ systems/avr8-gnu-toolchain-darwin_universal/avr/include/avr/version.h \
  /Users/roope/Documents/Koulu/Embedded\ systems/avr8-gnu-toolchain-darwin_universal/avr/include/avr/fuse.h \
  /Users/roope/Documents/Koulu/Embedded\ systems/avr8-gnu-toolchain-darwin_universal/avr/include/avr/lock.h \
- /Users/roope/Documents/Koulu/Embedded\ systems/avr8-gnu-toolchain-darwin_universal/avr/include/avr/interrupt.h \
  /Users/roope/Documents/Koulu/Embedded\ systems/avr8-gnu-toolchain-darwin_universal/avr/include/util/delay.h \
  /Users/roope/Documents/Koulu/Embedded\ systems/avr8-gnu-toolchain-darwin_universal/avr/include/util/delay_basic.h
 /Users/roope/Documents/Koulu/Embedded\ systems/avr8-gnu-toolchain-darwin_universal/avr/include/avr/io.h:
@@ -24,6 +23,5 @@ build/default/production/main.o.d build/default/production/main.o: main.c \
 /Users/roope/Documents/Koulu/Embedded\ systems/avr8-gnu-toolchain-darwin_universal/avr/include/avr/version.h:
 /Users/roope/Documents/Koulu/Embedded\ systems/avr8-gnu-toolchain-darwin_universal/avr/include/avr/fuse.h:
 /Users/roope/Documents/Koulu/Embedded\ systems/avr8-gnu-toolchain-darwin_universal/avr/include/avr/lock.h:
-/Users/roope/Documents/Koulu/Embedded\ systems/avr8-gnu-toolchain-darwin_universal/avr/include/avr/interrupt.h:
 /Users/roope/Documents/Koulu/Embedded\ systems/avr8-gnu-toolchain-darwin_universal/avr/include/util/delay.h:
 /Users/roope/Documents/Koulu/Embedded\ systems/avr8-gnu-toolchain-darwin_universal/avr/include/util/delay_basic.h:

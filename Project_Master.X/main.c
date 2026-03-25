@@ -6,14 +6,22 @@
 #include <stdlib.h>
 #include "lcd.h"
 #include "keypad.h"
-#define UNO_ADDR 0x10//TWI address of Arduino UNO (slave)
-#define LED_READY PG1//ready LED
-#define LED_MOVING PG2//moving LED
-#define LED_DOOR PD7//door LED
-#define LDR_CHANNEL 7//ADC channel for LDR
-#define LDR_THRESHOLD 400//threshold for obstacle detection
 
-//elevator states
+//configs
+#define UNO_ADDR 0x10 // TWI slave address (UNO)
+#define LED_READY PG1
+#define LED_MOVING PG2
+#define LED_DOOR PD7
+#define LDR_CHANNEL 7
+#define LDR_THRESHOLD 400 // ADC threshold for obstacle detection
+
+// Timing constants
+#define MOVE_DELAY 1000 // ms per floor
+#define DOOR_OPEN_TIME 3000 // ms
+#define DOOR_CLOSE_TIME 2000 // ms
+#define ADC_POLL_DELAY 50 // ms
+
+//states
 typedef enum{
     IDLE,
     GOING_UP,
@@ -30,55 +38,64 @@ uint8_t input_floor = 0;
 uint8_t input_active = 0;
 char buffer[32];
 char key;
-uint8_t cmd = 0;//command sent to slave (0 or 1)
-uint8_t twi_status;
-char test_char_array[16];
-//initialize TWI (master mode)
+uint8_t cmd = 0; // 1 = obstacle, 0 = no obstacle
 
+// Initialize TWI in master mode (~400 kHz)
 void TWI_init(){
-    TWBR = 0x03;//set SCL frequency (~400 kHz)
-    TWSR = 0x00;//prescaler = 1
-    TWCR |= (1 << TWEN);//enable TWI
+    TWBR = 0x03; // Bit rate for fast TWI
+    TWSR = 0x00; // Prescaler = 1
+    TWCR |= (1 << TWEN);
 }
 
-//send one byte to slave using TWI
+// Send single byte to slave
 void TWI_send_byte(uint8_t data){
-    //START condition
+
+    // START
     TWCR = (1<<TWINT)|(1<<TWSTA)|(1<<TWEN);
     while (!(TWCR & (1<<TWINT)));
-    
-    //send slave address + write
+
+    // Check START transmitted
+    if ((TWSR & 0xF8) != 0x08) return;
+
+    // Send address + write
     TWDR = (UNO_ADDR << 1);
     TWCR = (1<<TWINT)|(1<<TWEN);
     while (!(TWCR & (1<<TWINT)));
-    
-    //send data
+
+    // Check ACK
+    if ((TWSR & 0xF8) != 0x18) return;
+
+    // Send data
     TWDR = data;
     TWCR = (1<<TWINT)|(1<<TWEN);
     while (!(TWCR & (1<<TWINT)));
 
-    //STOP condition
+    // Check data ACK
+    if ((TWSR & 0xF8) != 0x28) return;
+
+    // STOP
     TWCR = (1<<TWINT)|(1<<TWEN)|(1<<TWSTO);
 }
 
-//initialize ADC
+// Initialize ADC
 void ADC_init(){
-    ADMUX = (1<<REFS0);//AVcc reference
-    ADCSRA = (1<<ADEN)|(1<<ADPS2)|(1<<ADPS1);//enable ADC + prescaler
+    ADMUX = (1<<REFS0);
+    ADCSRA = (1<<ADEN)|(1<<ADPS2)|(1<<ADPS1);
 }
 
-//read ADC value from selected channel
+// Read ADC channel (0?7)
 uint16_t ADC_read(uint8_t ch){
     ADMUX = (ADMUX & 0xF0) | ch;
-    ADCSRA |= (1<<ADSC);//start conversion
-    while(ADCSRA & (1<<ADSC));//wait
+    ADCSRA |= (1<<ADSC);
+    while(ADCSRA & (1<<ADSC));
     return ADC;
 }
 
 int main(void){
-    //set LED pins as outputs
+    // Configure LEDs as outputs
     DDRG |= (1<<LED_READY) | (1<<LED_MOVING);
     DDRD |= (1<<LED_DOOR);
+    
     lcd_init(LCD_DISP_ON);
     lcd_clrscr();
     KEYPAD_Init();
@@ -89,21 +106,24 @@ int main(void){
     {
         switch(state) {
         case IDLE:
-            //reset LEDs
-            PORTG &= ~(1<<LED_READY);
+            // Reset LEDs
             PORTG &= ~(1<<LED_MOVING);
             PORTD &= ~(1<<LED_DOOR);
+            PORTG |= (1<<LED_READY);
 
-            PORTG |= (1<<LED_READY);//show ready state
             lcd_clrscr();
             lcd_puts("Enter floor:");
             input_floor = 0;
             input_active = 1;
-            //read keypad input
+            // Read keypad input (blocking)
             while(input_active){
                 key = KEYPAD_GetKey();
+                
+                // Build number from digits
                 if(key >= '0' && key <= '9') {
                     uint8_t digit = key - '0';
+                    
+                    // Limit to 2 digits (0?99)
                     if(input_floor <= 9){
                         input_floor = input_floor * 10 + digit;
                         lcd_clrscr();
@@ -111,24 +131,26 @@ int main(void){
                         lcd_puts(buffer);
                     }
                     _delay_ms(200);
+                    // Wait for key release (library-specific)
                     while(KEYPAD_GetKey() != 'z') _delay_ms(10);
                 }
+                // Reset input
                 if(key == '#'){
                     input_floor = 0;
                     lcd_clrscr();
                     lcd_puts("Enter floor:");
                 }
+                // Confirm input
                 if(key == '*'){
                     target_floor = input_floor;
                     input_active = 0;
                 }
             }
-            //decide direction
+            // Decide next state
             if(target_floor == current_floor) state = FAULT;
             else if(target_floor > current_floor) state = GOING_UP;
             else state = GOING_DOWN;
         break;
-
         case GOING_UP:
             PORTG = (PORTG & ~(1<<LED_READY)) | (1<<LED_MOVING);
             PORTD &= ~(1<<LED_DOOR);
@@ -136,8 +158,11 @@ int main(void){
             lcd_clrscr();
             sprintf(buffer,"Floor:%d",current_floor);
             lcd_puts(buffer);
-            _delay_ms(1000);
-            if(current_floor == target_floor) state = DOOR_OPENING;
+            _delay_ms(MOVE_DELAY);
+            
+            if(current_floor == target_floor){
+                state = DOOR_OPENING;
+            }
         break;
 
         case GOING_DOWN:
@@ -147,15 +172,19 @@ int main(void){
             lcd_clrscr();
             sprintf(buffer,"Floor:%d",current_floor);
             lcd_puts(buffer);
-            _delay_ms(1000);
-            if(current_floor == target_floor) state = DOOR_OPENING;
+            _delay_ms(MOVE_DELAY);
+            
+            if(current_floor == target_floor){
+                state = DOOR_OPENING;
+            }
+
         break;
 
         case DOOR_OPENING:
             PORTD |= (1<<LED_DOOR);
             lcd_clrscr();
             lcd_puts("Door open");
-            _delay_ms(3000);
+            _delay_ms(DOOR_OPEN_TIME);
             state = DOOR_CLOSING;
         break;
 
@@ -165,21 +194,20 @@ int main(void){
             lcd_puts("Door closing");
             uint16_t close_time = 0;
 
-            //monitor LDR during closing
-            while(close_time < 2000) {
+            // Monitor obstacle continuously during closing
+            while(close_time < DOOR_CLOSE_TIME) {
                 uint16_t ldr_val = ADC_read(LDR_CHANNEL);
-                
-                //sobstacle detected
+                // Obstacle detected (low light ? LDR drop)
                 if(ldr_val < LDR_THRESHOLD){
                     cmd = 1;
                     TWI_send_byte(cmd);
                     state = OBSTACLE;
                     break;
                 }
-                _delay_ms(50);
-                close_time += 50;
+                _delay_ms(ADC_POLL_DELAY);
+                close_time += ADC_POLL_DELAY;
             }
-            //no obstacle -> normal close
+            // No obstacle ? return to IDLE
             if(state != OBSTACLE){
                 cmd = 0;
                 TWI_send_byte(cmd);
@@ -187,21 +215,23 @@ int main(void){
             }
         }
         break;
-
         case OBSTACLE:
             lcd_clrscr();
             lcd_puts("Obstacle!");
+            // Activate buzzer via slave
             cmd = 1;
             TWI_send_byte(cmd);
-            //wait until obstacle removed
+            // Wait until obstacle removed
             while(ADC_read(LDR_CHANNEL) < LDR_THRESHOLD) {
                 _delay_ms(100);
             }
+            // Stop buzzer
             cmd = 0;
             TWI_send_byte(cmd);
+            // Reopen doors for safety
             state = DOOR_OPENING;
         break;
-
+        
         case FAULT:
             lcd_clrscr();
             lcd_puts("Same floor");

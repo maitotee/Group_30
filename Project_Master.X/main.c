@@ -40,7 +40,7 @@ char buffer[32];
 char key;
 uint8_t cmd = 0; // 1 = obstacle, 0 = no obstacle
 
-// Initialize TWI in master mode (~400 kHz)
+// Initialize TWI in master mode
 void TWI_init(){
     TWBR = 0x03; // Bit rate for fast TWI
     TWSR = 0x00; // Prescaler = 1
@@ -83,7 +83,7 @@ void ADC_init(){
     ADCSRA = (1<<ADEN)|(1<<ADPS2)|(1<<ADPS1);
 }
 
-// Read ADC channel (0?7)
+// Read ADC channel
 uint16_t ADC_read(uint8_t ch){
     ADMUX = (ADMUX & 0xF0) | ch;
     ADCSRA |= (1<<ADSC);
@@ -123,7 +123,7 @@ int main(void){
                 if(key >= '0' && key <= '9') {
                     uint8_t digit = key - '0';
                     
-                    // Limit to 2 digits (0?99)
+                    // Limit to 2 digits (0-99)
                     if(input_floor <= 9){
                         input_floor = input_floor * 10 + digit;
                         lcd_clrscr();
@@ -131,7 +131,7 @@ int main(void){
                         lcd_puts(buffer);
                     }
                     _delay_ms(200);
-                    // Wait for key release (library-specific)
+                    // Wait for key release
                     while(KEYPAD_GetKey() != 'z') _delay_ms(10);
                 }
                 // Reset input
@@ -207,7 +207,7 @@ int main(void){
                 _delay_ms(ADC_POLL_DELAY);
                 close_time += ADC_POLL_DELAY;
             }
-            // No obstacle ? return to IDLE
+            // No obstacle -> return to IDLE
             if(state != OBSTACLE){
                 cmd = 0;
                 TWI_send_byte(cmd);

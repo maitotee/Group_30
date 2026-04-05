@@ -1,24 +1,22 @@
 /*
- * Slave (Arduino UNO) - LED and obstacle alert module
  * Receives TWI command from master and controls all LEDs:
- *   0 = CMD_IDLE     -> ready LED on
- *   1 = CMD_OBSTACLE -> obstacle LED blink + buzzer alarm
- *   2 = CMD_MOVING   -> moving LED on
- *   3 = CMD_DOOR     -> door LED on
+ * 0 = CMD_IDLE -> ready LED on
+ * 1 = CMD_OBSTACLE -> obstacle LED blink + buzzer alarm
+ * 2 = CMD_MOVING -> moving LED on
+ * 3 = CMD_DOOR -> door LED on
  *
- * Pin mapping:
- *   D12 (PB4) = obstacle LED
- *   D11 (PB3) = ready LED
- *   D10 (PB2) = moving LED
- *   D9  (PB1) = door LED
- *   D13 (PB5) = buzzer
+ * D12 (PB4) = obstacle LED
+ * D11 (PB3) = ready LED
+ * D10 (PB2) = moving LED
+ * D9  (PB1) = door LED
+ * D13 (PB5) = buzzer
  */
 
 #define F_CPU 16000000UL
 #include <avr/io.h>
 #include <util/delay.h>
 
-#define SLAVE_ADDR 0x10 // TWI slave address (UNO)
+#define SLAVE_ADDR 0x10 // TWI slave address
 
 #define BUZZER       PB5 // buzzer pin (D13)
 #define LED_OBSTACLE PB4 // obstacle LED (D12)
@@ -26,7 +24,7 @@
 #define LED_MOVING   PB2 // moving LED (D10)
 #define LED_DOOR     PB1 // door LED (D9)
 
-// TWI command values (must match master defines)
+// TWI command values
 #define CMD_IDLE     0
 #define CMD_OBSTACLE 1
 #define CMD_MOVING   2
@@ -43,19 +41,15 @@ uint8_t twi_status; // TWI status register value
 uint8_t data;       // received data byte
 
 // Generate a tone on the buzzer
-// freq = frequency in Hz, duration = duration in ms
-// Implementation: software PWM using busy-wait (no hardware timer)
-// period = one full cycle in microseconds
-// cycles = number of full cycles that fit in the duration
 void play_tone(uint16_t freq, uint16_t duration){
-    uint32_t period = 1000000UL / freq;             // cycle length in us
+    uint32_t period = 1000000UL / freq; // cycle length in us
     uint32_t cycles = (duration * 1000UL) / period; // number of cycles
 
     for(uint32_t i=0;i<cycles;i++){
-        PORTB |= (1<<BUZZER);                        // high half-cycle
+        PORTB |= (1<<BUZZER); // high half-cycle
         for(uint32_t j=0;j<period/2;j++) _delay_us(1);
 
-        PORTB &= ~(1<<BUZZER);                       // low half-cycle
+        PORTB &= ~(1<<BUZZER); // low half-cycle
         for(uint32_t j=0;j<period/2;j++) _delay_us(1);
     }
 }
@@ -122,10 +116,9 @@ int main(void){
                 break;
 
             case CMD_OBSTACLE:
-                // NOTE: play_alarm() blocks ~800ms during which TWI messages are not handled
                 leds_off();
                 PORTB ^= (1<<LED_OBSTACLE); // blink obstacle LED
-                play_alarm();               // sound alarm
+                play_alarm(); // sound alarm
                 _delay_ms(300);
                 break;
 

@@ -38,7 +38,7 @@
 volatile uint8_t current_cmd = CMD_IDLE; // current command from master
 
 uint8_t twi_status; // TWI status register value
-uint8_t data;       // received data byte
+uint8_t data; // received data byte
 
 // Generate a tone on the buzzer
 void play_tone(uint16_t freq, uint16_t duration){

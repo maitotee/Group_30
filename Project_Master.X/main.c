@@ -7,11 +7,8 @@
 #include "lcd.h"
 #include "keypad.h"
 
-//configs
+// configs
 #define UNO_ADDR 0x10 // TWI slave address (UNO)
-#define LED_READY PG1
-#define LED_MOVING PG2
-#define LED_DOOR PD7
 #define LDR_CHANNEL 7
 #define LDR_THRESHOLD 400 // ADC threshold for obstacle detection
 
@@ -21,7 +18,13 @@
 #define DOOR_CLOSE_TIME 2000 // ms
 #define ADC_POLL_DELAY 50 // ms
 
-//states
+// TWI commands sent to slave to control LEDs and buzzer
+#define CMD_IDLE     0 // ready LED on
+#define CMD_OBSTACLE 1 // obstacle LED blink + buzzer
+#define CMD_MOVING   2 // moving LED on
+#define CMD_DOOR     3 // door LED on
+
+// states
 typedef enum{
     IDLE,
     GOING_UP,
@@ -38,7 +41,6 @@ uint8_t input_floor = 0;
 uint8_t input_active = 0;
 char buffer[32];
 char key;
-uint8_t cmd = 0; // 1 = obstacle, 0 = no obstacle
 
 // Initialize TWI in master mode
 void TWI_init(){
@@ -92,10 +94,6 @@ uint16_t ADC_read(uint8_t ch){
 }
 
 int main(void){
-    // Configure LEDs as outputs
-    DDRG |= (1<<LED_READY) | (1<<LED_MOVING);
-    DDRD |= (1<<LED_DOOR);
-    
     lcd_init(LCD_DISP_ON);
     lcd_clrscr();
     KEYPAD_Init();
@@ -106,10 +104,8 @@ int main(void){
     {
         switch(state) {
         case IDLE:
-            // Reset LEDs
-            PORTG &= ~(1<<LED_MOVING);
-            PORTD &= ~(1<<LED_DOOR);
-            PORTG |= (1<<LED_READY);
+            // Signal slave: ready LED on
+            TWI_send_byte(CMD_IDLE);
 
             lcd_clrscr();
             lcd_puts("Enter floor:");
@@ -118,11 +114,11 @@ int main(void){
             // Read keypad input (blocking)
             while(input_active){
                 key = KEYPAD_GetKey();
-                
+
                 // Build number from digits
                 if(key >= '0' && key <= '9') {
                     uint8_t digit = key - '0';
-                    
+
                     // Limit to 2 digits (0-99)
                     if(input_floor <= 9){
                         input_floor = input_floor * 10 + digit;
@@ -151,37 +147,38 @@ int main(void){
             else if(target_floor > current_floor) state = GOING_UP;
             else state = GOING_DOWN;
         break;
+
         case GOING_UP:
-            PORTG = (PORTG & ~(1<<LED_READY)) | (1<<LED_MOVING);
-            PORTD &= ~(1<<LED_DOOR);
+            // Signal slave: moving LED on
+            TWI_send_byte(CMD_MOVING);
             current_floor++;
             lcd_clrscr();
             sprintf(buffer,"Floor:%d",current_floor);
             lcd_puts(buffer);
             _delay_ms(MOVE_DELAY);
-            
+
             if(current_floor == target_floor){
                 state = DOOR_OPENING;
             }
         break;
 
         case GOING_DOWN:
-            PORTG = (PORTG & ~(1<<LED_READY)) | (1<<LED_MOVING);
-            PORTD &= ~(1<<LED_DOOR);
+            // Signal slave: moving LED on
+            TWI_send_byte(CMD_MOVING);
             current_floor--;
             lcd_clrscr();
             sprintf(buffer,"Floor:%d",current_floor);
             lcd_puts(buffer);
             _delay_ms(MOVE_DELAY);
-            
+
             if(current_floor == target_floor){
                 state = DOOR_OPENING;
             }
-
         break;
 
         case DOOR_OPENING:
-            PORTD |= (1<<LED_DOOR);
+            // Signal slave: door LED on
+            TWI_send_byte(CMD_DOOR);
             lcd_clrscr();
             lcd_puts("Door open");
             _delay_ms(DOOR_OPEN_TIME);
@@ -189,7 +186,8 @@ int main(void){
         break;
 
         case DOOR_CLOSING:{
-            PORTD |= (1<<LED_DOOR);
+            // Signal slave: door LED on
+            TWI_send_byte(CMD_DOOR);
             lcd_clrscr();
             lcd_puts("Door closing");
             uint16_t close_time = 0;
@@ -197,10 +195,9 @@ int main(void){
             // Monitor obstacle continuously during closing
             while(close_time < DOOR_CLOSE_TIME) {
                 uint16_t ldr_val = ADC_read(LDR_CHANNEL);
-                // Obstacle detected (low light ? LDR drop)
+                // Obstacle detected (low light = LDR drop)
                 if(ldr_val < LDR_THRESHOLD){
-                    cmd = 1;
-                    TWI_send_byte(cmd);
+                    TWI_send_byte(CMD_OBSTACLE);
                     state = OBSTACLE;
                     break;
                 }
@@ -209,29 +206,25 @@ int main(void){
             }
             // No obstacle -> return to IDLE
             if(state != OBSTACLE){
-                cmd = 0;
-                TWI_send_byte(cmd);
+                TWI_send_byte(CMD_IDLE);
                 state = IDLE;
             }
         }
         break;
+
         case OBSTACLE:
             lcd_clrscr();
             lcd_puts("Obstacle!");
-            // Activate buzzer via slave
-            cmd = 1;
-            TWI_send_byte(cmd);
+            // Signal slave: obstacle LED + buzzer on
+            TWI_send_byte(CMD_OBSTACLE);
             // Wait until obstacle removed
             while(ADC_read(LDR_CHANNEL) < LDR_THRESHOLD) {
                 _delay_ms(100);
             }
-            // Stop buzzer
-            cmd = 0;
-            TWI_send_byte(cmd);
             // Reopen doors for safety
             state = DOOR_OPENING;
         break;
-        
+
         case FAULT:
             lcd_clrscr();
             lcd_puts("Same floor");
